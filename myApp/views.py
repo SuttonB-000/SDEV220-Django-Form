@@ -1,7 +1,11 @@
 from django.shortcuts import render
 from .forms import StudentForm
 
+def home(request):
+    return render(request, 'myApp/index.html')
+
 def student_form(request):
+    # student form logic
     if request.method == 'POST':
         form = StudentForm(request.POST)
 
