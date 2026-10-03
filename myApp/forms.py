@@ -1,7 +1,7 @@
 
-fromm django import forms
+from django import forms
 
-class StudentFrom(forms.Form):
+class StudentForm(forms.Form):
     student_name = forms.CharField(
         label="Student Name",
         max_length=100,
@@ -11,7 +11,7 @@ class StudentFrom(forms.Form):
     student_id = forms.CharField(
         label="Student ID",
         max_length=20,
-        widget=froms.TextInput()
+        widget=forms.TextInput()
     )
 
     major = forms.ChoiceField(
@@ -35,7 +35,7 @@ class StudentFrom(forms.Form):
             ('senior', 'Senior'),
             ('graduate', 'Graduate'),
         ],
-        wdiget=froms.RadioSelect()
+        widget=forms.RadioSelect()
     )
 
     programming_langauges = forms.MultipleChoiceField(
