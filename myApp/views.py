@@ -1,23 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .forms import StudentForm
 
 def home(request):
-    return render(request, 'myApp/index.html')
+    return render(request, 'index.html')
 
 def student_form(request):
-    # student form logic
     if request.method == 'POST':
         form = StudentForm(request.POST)
-
         if form.is_valid():
-            student_name = form.cleaned_data["studnet_name"]
-            student_id = form.cleaned_data["student_id"]
-            major = form.cleaned_data['major']
-            class_standing = form.cleaned_data['class_standing']
-            programming_languages = form.cleaned_data['programming_languages']
-            graduation_year = form.cleaned_data['graduation_year']
+            # The assignment currently collects the submitted values but does
+            # not persist them. Redirect so a successful submission cannot be
+            # accidentally re-submitted on refresh.
+            return redirect('student_form')
+    else:
+        form = StudentForm()
 
-        else:
-            form = StudentForm()
-
-        return render(request, 'student_form.html', {'form':form})
+    return render(request, 'form.html', {'form': form})

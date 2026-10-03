@@ -30,7 +30,7 @@ class StudentForm(forms.Form):
         label="Class Standing",
         choices=[
             ('freshman', 'Freshman'),
-            ('sophmore', 'Sophmore'),
+            ('sophomore', 'Sophomore'),
             ('junior', 'Junior'),
             ('senior', 'Senior'),
             ('graduate', 'Graduate'),
@@ -38,8 +38,8 @@ class StudentForm(forms.Form):
         widget=forms.RadioSelect()
     )
 
-    programming_langauges = forms.MultipleChoiceField(
-        label="Programming Langauges Known",
+    programming_languages = forms.MultipleChoiceField(
+        label="Programming Languages Known",
         choices=[
             ('python', 'Python'),
             ('rust', 'Rust'),
