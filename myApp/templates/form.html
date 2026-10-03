@@ -1,7 +1,42 @@
 {% extends "base.html" %}
 
-{% block title %}Form{% endblock %}
-
-{% block content %}
-  <h1>Form</h1>
-{% form %}
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Student Form</title>
+  </head>
+  <body>
+    <h1> Student Information </h1>
+    <form method="POST">
+      {% csrf_token %}
+      <p>
+        {{ form.student_name.label_tag }}
+        {{ form.student_name }}
+      </p>
+      <p>
+        {{ form.student_id.label_tag}}
+        {{ form.student_id }}
+      </p>
+      <p>
+        {{ form.major.label_tag }}
+        {{ form.major }}
+      </p>
+      <p>
+        {{ form.class_standing.label_tag}}
+        {{ form.class_standing}}
+      </p>
+      <p>
+        {{ form.programming_languages.label_tag }}
+        {{ form.programming_languages }}
+      </p>
+      <p>
+        {{ form.graduation_year.label_tag }}
+        {{ form.graduation_year }}
+      </p>
+      <p>
+        {{ form.comments.label_tag }}
+        {{ form.comments }}
+      </p>
+    </form>
+  </body>
+</html>
