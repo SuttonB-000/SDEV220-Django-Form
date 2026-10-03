@@ -1,6 +1,5 @@
 
 from django import forms
-from django.core.exceptions import ValidationError
 
 class StudentForm(forms.Form):
     student_name = forms.CharField(
@@ -25,10 +24,10 @@ class StudentForm(forms.Form):
     )
 
     def clean_student_id(self):
-        student_id = seld.cleaned_data['student_id']
+        student_id = self.cleaned_data['student_id']
 
         if not student_id:
-            raise froms.ValidationError('This is a required field')
+            raise forms.ValidationError('This is a required field')
         
         return student_id
 

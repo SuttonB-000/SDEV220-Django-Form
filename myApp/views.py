@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import render
 from .forms import StudentForm
 
 def home(request):
@@ -16,7 +16,17 @@ def student_form(request):
             graduation_year = form.cleaned_data['graduation_year']
             comments = form.cleaned_data['comments']
 
-            return redirect('student_form')
+            return render(request, 'form.html',{
+                'form': form,
+                'submitted': True,
+                'student_name': student_name,
+                'student_id': student_id,
+                'major': major,
+                'class_standing': class_standing,
+                'programming_languages': programming_languages,
+                'graduation_year': graduation_year,
+                'comments': comments,
+            })
     else:
         form = StudentForm() 
 
