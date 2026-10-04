@@ -1,0 +1,57 @@
+/* very simple quick lil boilerplate ish */
+
+{% extends "base.html" %}
+
+{% block title %}Student Results{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="shadow-sm">
+                <div class="body">
+                    <h1 class="mb-4">
+                        Student Information
+                    </h1>
+                    {% if student_data %}
+                        <p>
+                            <strong>Name:</strong>
+                            {{ student_data.student_name }}
+                        </p>
+                        <p>
+                            <strong>Student ID:</strong>
+                            {{ student_data.student_id }}
+                        </p>
+                        <p>
+                            <strong>Major:</strong>
+                            {{ student_data.major }}
+                        </p>
+                        <p>
+                            <strong>Class Standing:</strong>
+                            {{ student_data.class_standing }}
+                        </p>
+                        <p>
+                            <strong>Programming Languages:</strong>
+                            {{ student_data.programming_languages }}
+                        </p>
+                        <p>
+                            <strong>Graduation Year:</strong>
+                            {{ student_data.graduation_year }}
+                        </p>
+                        <p>
+                            <strong>Comments:</strong>
+                            {{ student_data.comments }}
+                        </p>
+                    {% else %}
+                        <p>No student information has been submitted.</p>
+                    {% endif %}
+                    <a href="{% url 'student_form' %}" class="btn btn-primary">
+                        Back to Form
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
